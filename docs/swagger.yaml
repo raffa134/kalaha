@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  description: "This API provides endpoints for Kalaha game management."
+  version: "1.0.0"
+  title: "Kalaha API"
+  contact:
+    email: "raffaella.patronelli@gmail.com"
+paths:
+  /start:
+    post:
+      summary: "Setup board and start game"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/game_context'
+
+  /play/{playerID}/{houseNumber}:
+    post:
+      summary: "Play turn"
+      parameters:
+        - in: path
+          name: playerID
+          description: "Player ID"
+          required: true
+          schema:
+            type: "string"
+            enum: ["PLAYER_1", "PLAYER_2"]
+        - in: path
+          name: houseNumber
+          description: "House number"
+          required: true
+          schema:
+            type: "integer"
+            minimum: 1
+            maximum: 6
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/game_context'
+        "400":
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+
+  /endGame:
+    post:
+      summary: "End game and get final scores"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/game_context'
+
+components:
+  schemas:
+    game_context:
+      type: object
+      properties:
+        board:
+          type: array
+          minItems: 2
+          items:
+            $ref: '#/components/schemas/player_board'
+        next_state:
+          type: string
+    pit:
+      type: "object"
+      properties:
+        seeds:
+          type: integer
+          minimum: 0
+          example: 6
+    player_board:
+      type: object
+      properties:
+        player:
+          type: string
+        houses:
+          type: array
+          minItems: 6
+          maxItems: 6
+          items:
+            $ref: '#/components/schemas/pit'
+        store:
+          $ref: '#/components/schemas/pit'
+    error:
+      type: "object"
+      description: Error message
+      properties:
+        severity:
+          type: string
+          enum:
+            - critical
+            - error
+            - warning
+            - info
+          example: error
+        message:
+          type: string
+          example: Error occurred while processing the request
+          description: A descriptive error message for the consumer
+      required:
+        - severity
+        - message

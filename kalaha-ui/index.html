@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/app.css" />
+    <script src="./js/app.js"></script>
+    <title>Kalaha Game</title>
+    
+    <p class="hidden" id="winner"></p>
+
+    <button class="button centered" id="start-game-button" onclick="startGame()">Start new game</button>
+
+    <div class="hidden centered" id="game">
+
+    <p>PLAYER 1</p>
+    <div id="board">
+        <div class="store" id="STORE_PLAYER_1"></div>
+
+        <div class="rows">
+            <div class="row" id="HOUSES_PLAYER_1">
+                <div class="pit" id="pit-6" onclick="play(1, this.id)"></div>
+                <div class="pit" id="pit-5" onclick="play(1, this.id)"></div>
+                <div class="pit" id="pit-4" onclick="play(1, this.id)"></div>
+                <div class="pit" id="pit-3" onclick="play(1, this.id)"></div>
+                <div class="pit" id="pit-2" onclick="play(1, this.id)"></div>
+                <div class="pit" id="pit-1" onclick="play(1, this.id)"></div>
+            </div>
+
+            <div class="row" id="HOUSES_PLAYER_2">
+                <div class="pit" id="pit-1" onclick="play(2, this.id)"></div>
+                <div class="pit" id="pit-2" onclick="play(2, this.id)"></div>
+                <div class="pit" id="pit-3" onclick="play(2, this.id)"></div>
+                <div class="pit" id="pit-4" onclick="play(2, this.id)"></div>
+                <div class="pit" id="pit-5" onclick="play(2, this.id)"></div>
+                <div class="pit" id="pit-6" onclick="play(2, this.id)"></div>
+            </div>
+        </div>
+
+        <div class="store" id="STORE_PLAYER_2"></div>
+    </div>
+    <p>PLAYER 2</p>
+
+    </div>
+    
+</head>
+<body>
+
+</body>
+</html>

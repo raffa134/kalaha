@@ -1,0 +1,57 @@
+{
+  "board": [
+    {
+      "player": "PLAYER_1",
+      "houses": [
+        {
+          "seeds": 6
+        },
+        {
+          "seeds": 6
+        },
+        {
+          "seeds": 6
+        },
+        {
+          "seeds": 6
+        },
+        {
+          "seeds": 6
+        },
+        {
+          "seeds": 6
+        }
+      ],
+      "store": {
+        "seeds": 0
+      }
+    },
+    {
+      "player": "PLAYER_2",
+      "houses": [
+        {
+          "seeds": 6
+        },
+        {
+          "seeds": 6
+        },
+        {
+          "seeds": 6
+        },
+        {
+          "seeds": 6
+        },
+        {
+          "seeds": 6
+        },
+        {
+          "seeds": 6
+        }
+      ],
+      "store": {
+        "seeds": 0
+      }
+    }
+  ],
+  "next_state": "PLAYER_1_TURN"
+}

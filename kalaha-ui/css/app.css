@@ -1,0 +1,87 @@
+html {
+    font-size: 10px;
+    font-family: 'Andale Mono', serif;
+}
+
+body {
+    background-color: bisque;
+    color: #481616;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 1em;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.5em 3em;
+    border: 0.16em solid #481616;
+    margin: 0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #481616;
+    text-align: center;
+    transition: all 0.15s;
+}
+
+#board {
+    margin: 30px auto;
+    display: flex;
+    width: 1000px;
+    height: 250px;
+    background: url(../images/wood_background.jpg);
+    border: 2px solid rgba(84, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.rows {
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    flex: 1;
+    display: flex;
+}
+
+.store, .pit {
+    flex: 1;
+    border-radius: 60px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 0 2px rgba(84, 0, 0, 0.5);
+    cursor: default;
+}
+
+.disabled-element {
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#winner {
+    font-size: 5rem;
+}
